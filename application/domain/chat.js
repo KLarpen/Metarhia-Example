@@ -20,4 +20,8 @@
       client.emit('chat/message', { room: name, message });
     }
   },
+
+  cacheAccessFromLib() {
+    lib.example.submodule3.nested2.method1();
+  },
 });
