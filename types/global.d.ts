@@ -7,6 +7,7 @@ import * as _impress from 'impress';
 
 import * as _metasql from 'metasql';
 import { Database } from 'metasql';
+import { Knex } from 'knex';
 
 declare global {
   namespace metarhia {
@@ -21,6 +22,7 @@ declare global {
 
   namespace db {
     const pg: Database;
+    const knex: Knex;
   }
 }
 
