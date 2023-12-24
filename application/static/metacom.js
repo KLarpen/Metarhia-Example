@@ -1,7 +1,7 @@
 import EventEmitter from './events.js';
 import { chunkDecode, MetaReadable, MetaWritable } from './streams.js';
 
-const CALL_TIMEOUT = 7 * 1000;
+const CALL_TIMEOUT = 30 * 1000;
 const PING_INTERVAL = 60 * 1000;
 const RECONNECT_TIMEOUT = 2 * 1000;
 
