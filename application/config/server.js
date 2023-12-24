@@ -13,8 +13,8 @@
     test: 60000,
   },
   queue: {
-    concurrency: 1000,
-    size: 2000,
+    concurrency: 1,
+    size: 1,
     timeout: 3000,
   },
   scheduler: {
