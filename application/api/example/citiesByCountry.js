@@ -12,15 +12,22 @@ async ({ countryId }) => {
 
   // Raw query execution
   // https://knexjs.org/guide/raw.html
-  const data = await db.knex.raw(
+  /* const data = await db.knex.raw(
     'SELECT "cityId", "name" FROM "City" WHERE "countryId" = ?',
     [countryId],
-  );
+  ); */
   // broken official example https://knexjs.org/guide/query-builder.html#fromraw
   // error: select * from (SELECT * FROM "City" WHERE "countryId" = $1) - subquery in FROM must have an alias
   /* const data = await db.knex
     .select('*')
     .fromRaw('(SELECT * FROM "City" WHERE "countryId" = ?)', countryId); */
+
+  // Extended query with JOIN
+  const data = await db
+    .knex('City as c')
+    .join('Country as state', 'c.countryId', 'state.countryId')
+    .select(['c.cityId', 'c.name', 'state.name as state'])
+    .where('c.countryId', countryId);
 
   return { result: 'success', data };
 };
